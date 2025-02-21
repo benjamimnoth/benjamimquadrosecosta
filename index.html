@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +11,15 @@
             margin: 0;
             padding: 0;
             background: black;
-            overflow-x: auto;
-            overflow-y: hidden;
-            white-space: nowrap;
+            overflow-y: auto;
+            overflow-x: hidden;
+            white-space: normal;
         }
 
         .timeline-container {
-            display: flex;
+            display: block;
             align-items: center;
             position: relative;
-            height: 100vh;
             padding-top: 60px;
         }
 
@@ -44,17 +44,16 @@
         }
 
         .timeline {
-            display: flex;
+            display: block;
             align-items: center;
             position: relative;
-            padding-left: 50px;
-            width: max-content;
+            padding-top: 50px;
         }
 
         .event {
             width: 250px;
             height: 200px;
-            margin-right: 100px;
+            margin-bottom: 100px;
             background: rgba(255, 255, 255, 0.1);
             color: white;
             display: flex;
@@ -66,20 +65,23 @@
 
         .timeline-lines {
             position: absolute;
-            top: 52px;
-            left: 0;
-            width: 100%;
-            height: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: white;
         }
 
         .timeline-lines div {
             position: absolute;
-            width: 2px;
-            height: 20px;
+            width: 20px;
+            height: 2px;
             background: white;
+            left: -9px;
         }
     </style>
 </head>
+
 <body>
     <div class="timeline-bar"></div>
     <div class="timeline-container">
@@ -96,9 +98,10 @@
         const timelineLines = document.querySelector(".timeline-lines");
         for (let i = 0; i < 20; i++) {
             let line = document.createElement("div");
-            line.style.left = (i * 300) + "px";
+            line.style.top = (i * 300) + "px";
             timelineLines.appendChild(line);
         }
     </script>
 </body>
+
 </html>
